@@ -1,0 +1,6 @@
+{
+    "tasks": {
+        "init": "deno cache deps.js",
+        "dev": "deno run --unstable --watch --allow-net --allow-read --allow-env --no-check app-launch.js"
+    }
+}
