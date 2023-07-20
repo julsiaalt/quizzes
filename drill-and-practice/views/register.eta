@@ -1,0 +1,17 @@
+<% layout("./layouts/layout.eta", {title: "Register page"}) %>
+
+<form action="/auth/register" method="POST">
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required>
+  <% if (it.email) {%>
+  <p><%= it.email %></p>
+  <%}%>
+  <br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" required>
+  <% if (it.password) {%>
+    <p><%= it.password %></p>
+  <%}%>
+  <br><br>
+  <input type="submit" value="Register">
+</form>

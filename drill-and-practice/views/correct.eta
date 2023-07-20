@@ -1,0 +1,7 @@
+<% layout("./layouts/layout.eta", {title: "Correct page"}) %>
+
+<h1>Correct!</h1>
+
+<div>
+    <a href="/quiz/<% it.tId %>">Next question</a>
+</div>

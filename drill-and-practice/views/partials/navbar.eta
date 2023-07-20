@@ -1,0 +1,6 @@
+<navbar>
+    <ul>
+        <li><a href="/topics">Topics</a></li>
+        <li><a href="/quiz">Quiz</a></li>
+    </ul>
+<navbar>

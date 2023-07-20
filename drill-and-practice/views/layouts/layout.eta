@@ -1,1 +1,47 @@
-<%~ it.body %>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+  <title><%= it.title %></title>
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111;
+    }
+  </style>
+</head>
+<body>
+  <navbar>
+    <ul>
+      <li><a href="/topics">Topics</a></li>
+      <li><a href="/quiz">Quiz</a></li>
+      <li><a href="/auth/login">Login</a></li>
+      <li><a href="/auth/register">Register</a></li>
+    </ul>
+    <navbar>
+  <div class="container">
+    <%~ it.body %>
+  </div>
+</body>
+
+</html>
