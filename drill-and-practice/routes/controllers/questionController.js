@@ -16,7 +16,7 @@ const add = async ({ params, state, request, response }) => {
       return response.redirect("/topics/" + tid, { question: "Failed!" });
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -37,7 +37,7 @@ const del = async ({ params, state, response }) => {
       return response.redirect("/topics/" + tId, {msg: "Failed!"});
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -58,7 +58,7 @@ const questions = async ({ request, params, render, state, response }) => {
       return response.redirect("/topics");
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 

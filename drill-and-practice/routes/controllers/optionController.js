@@ -23,7 +23,7 @@ const add = async ({ params, state, request, response }) => {
       });
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -41,7 +41,7 @@ const del = async ({ params, state, response }) => {
       return response.redirect("/topics/" + tId + "/questions/" + qId, {msg: "Failed!"});
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -63,7 +63,7 @@ const answers = async ({ params, render, state, response }) => {
       return response.redirect("/quiz/"+ tId +"/questions/"+qId);
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -87,7 +87,7 @@ const correct = async ({ params, render, state, response }) => {
       return response.redirect("/quiz/"+ tId +"/questions/"+qId);
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -113,7 +113,7 @@ const incorrect = async ({ params, render, state, response }) => {
       return response.redirect("/quiz/"+ tId +"/questions/"+qId);
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -136,7 +136,7 @@ const options = async ({ request, params, render, state, response }) => {
       return response.redirect("/topics/" + tId);
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 

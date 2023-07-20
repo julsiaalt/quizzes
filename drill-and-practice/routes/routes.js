@@ -1,4 +1,5 @@
 import { Router } from "../deps.js";
+import { oakCors } from "../deps.js";
 
 import * as mainController from "./controllers/mainController.js";
 import * as userController from "./controllers/userController.js";
@@ -113,12 +114,12 @@ router.post("/auth/register", userController.register);
 // @method GET
 // @access public
 // @description get random question and its answer options
-router.get("/api/questions/random", questionAPI.random);
+router.get("/api/questions/random", oakCors(), questionAPI.random);
 
 // @method POST
 // @access public
 // @description 
-router.post("/api/questions/answer", questionAPI.answer);
+router.post("/api/questions/answer", oakCors(), questionAPI.answer);
 
 router.get("/logout", (context) => {
     context.state.session.deleteSession();

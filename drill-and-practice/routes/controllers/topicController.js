@@ -11,7 +11,7 @@ const topics = async ({request, render, state, response }) => {
       render("topics.eta", { topics, admin: user.admin});
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -30,7 +30,7 @@ const add = async ({ state, request, response }) => {
       return response.redirect("/topics", { name: "Failed!" });
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
@@ -54,7 +54,7 @@ const del = async ({ params, state, response }) => {
       return response.redirect("/topics");
     }
   } else {
-    return response.redirect("/");
+    return response.redirect("/auth/login");
   }
 };
 
