@@ -1,39 +1,39 @@
-<% layout("./layouts/layout.eta", {title: "Question page"}) %>
+  <% layout("./layouts/layout.eta", {title: "Question page"}) %>
 
-<h3>Topic: <%= it.topic.name %></h3>
-<% if (it.is_quiz) {%>
-  <% } else { %>
-<form action="/topics/<%= it.topic.id %>/questions" method="POST">
-  <label for="question">Question:</label><br>
-  <input type="textarea" id="question_text" name="question_text" required>
-  <input type="submit" value="Add">
-  <% if (it.question_text) {%>
-  <p><%= it.question_text %></p>
-  <%}%>
-  </form>
-  <br>
-  <br>
-<% } %>
-
-<h3>Questions:</h3>
-<table>
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>Question</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for (i = 0; i < it.questions.length; i++) { %>
-    <% question = it.questions[i] %>
-    <tr>
-      <td><%= i + 1 %></td>
-      <% if (it.is_quiz) {%>
-      <td><a href="/quiz/<%= it.topic.id %>/questions/<%= question.id %>"><%= question.question_text %></a></td>
-      <%}else {%>
-      <td><a href="/topics/<%= it.topic.id %>/questions/<%= question.id %>"><%= question.question_text %></a></td>
-      <%}%>
-        </tr>
+  <h3>Topic: <%= it.topic.name %></h3>
+  <% if (it.is_quiz) {%>
+    <% } else { %>
+  <form action="/topics/<%= it.topic.id %>/questions" method="POST">
+    <label for="question">Question:</label><br>
+    <input type="textarea" id="question_text" name="question_text" required>
+    <input type="submit" value="Add">
+    <% if (it.question_text) {%>
+    <p><%= it.question_text %></p>
     <%}%>
-  </tbody>
-</table>
+    </form>
+    <br>
+    <br>
+  <% } %>
+
+  <h3>Questions:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Question</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (i = 0; i < it.questions.length; i++) { %>
+      <% question = it.questions[i] %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <% if (it.is_quiz) {%>
+        <td><a href="/quiz/<%= it.topic.id %>/questions/<%= question.id %>"><%= question.question_text %></a></td>
+        <%}else {%>
+        <td><a href="/topics/<%= it.topic.id %>/questions/<%= question.id %>"><%= question.question_text %></a></td>
+        <%}%>
+          </tr>
+      <%}%>
+    </tbody>
+  </table>

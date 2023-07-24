@@ -1,17 +1,17 @@
-import { configure, renderFile } from "../deps.js";
+  import { configure, renderFile } from "../deps.js";
 
-const renderMiddleware = async (context, next) => {
-  configure({
-    views: `${Deno.cwd()}/views/`,
-    statics: `${Deno.cwd()}/static/`
-  });
+  const renderMiddleware = async (context, next) => {
+    configure({
+      views: `${Deno.cwd()}/views/`,
+      statics: `${Deno.cwd()}/static/`
+    });
 
-  context.render = async (file, data) => {
-    context.response.headers.set("Content-Type", "text/html; charset=utf-8");
-    context.response.body = await renderFile(file, data);
+    context.render = async (file, data) => {
+      context.response.headers.set("Content-Type", "text/html; charset=utf-8");
+      context.response.body = await renderFile(file, data);
+    };
+
+    await next();
   };
 
-  await next();
-};
-
-export { renderMiddleware };
+  export { renderMiddleware };

@@ -1,8 +1,8 @@
-<% layout("./layouts/layout.eta", {title: "Index page"}) %>
+    <% layout("./layouts/layout.eta", {title: "Index page"}) %>
 
-<h1>This is Main page.</h1>
-<p>Description</p>
-<hr>
-<p>Number of topics: <strong><%= it.topicsNum %></strong></p>
-<p>Number of questions: <strong><%= it.questionsNum %></strong></p>
-<p>Number of question answers: <strong><%= it.answersNum %></strong></p>
+    <h1>This is Main page.</h1>
+    <p>Description</p>
+    <hr>
+    <p>Number of topics: <strong><%= it.topicsNum %></strong></p>
+    <p>Number of questions: <strong><%= it.questionsNum %></strong></p>
+    <p>Number of question answers: <strong><%= it.answersNum %></strong></p>

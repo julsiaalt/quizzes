@@ -1,44 +1,44 @@
-<% layout("./layouts/layout.eta", {title: "Topic page"}) %>
+  <% layout("./layouts/layout.eta", {title: "Topic page"}) %>
 
-<% if (it.admin) {%>
-  <form action="/topics" method="POST">
-    <label for="name">Name of Topic:</label><br>
-    <input type="text" id="name" name="name" required>
-    <input type="submit" value="Add">
-    <% if (it.name) {%>
-    <p><%= it.name %></p>
-    <%}%>
-  </form>
-  <br>
-  <br>
-<%}%>
-<h3>Topics:</h3>
-<table>
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>Name</th>
-      <% if (it.admin) {%>
-      <th>Action</th>
+  <% if (it.admin) {%>
+    <form action="/topics" method="POST">
+      <label for="name">Name of Topic:</label><br>
+      <input type="text" id="name" name="name" required>
+      <input type="submit" value="Add">
+      <% if (it.name) {%>
+      <p><%= it.name %></p>
       <%}%>
-    </tr>
-  </thead>
-  <tbody>
-    <% for (i = 0; i < it.topics.length; i++) { %>
-        <% topic = it.topics[i] %>
-        <tr>
-          <td><%= i + 1 %></td>
-          <% if (it.is_quiz) {%>
-            <td><a href="/quiz/<%= topic.id %>"><%= topic.name %></a></td>
-          <%} else {%>
-            <td><a href="/topics/<%= topic.id %>"><%= topic.name %></a></td>
-          <%}%>
-          <% if (it.admin) {%>
-          <td>
-            <form method="POST" action="/topics/<%= topic.id %>/delete"><input type="submit" value="Delete"></form>
-          </td>
-          <%}%>
-        </tr>
-    <%}%>
-  </tbody>
-</table>
+    </form>
+    <br>
+    <br>
+  <%}%>
+  <h3>Topics:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <% if (it.admin) {%>
+        <th>Action</th>
+        <%}%>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (i = 0; i < it.topics.length; i++) { %>
+          <% topic = it.topics[i] %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <% if (it.is_quiz) {%>
+              <td><a href="/quiz/<%= topic.id %>"><%= topic.name %></a></td>
+            <%} else {%>
+              <td><a href="/topics/<%= topic.id %>"><%= topic.name %></a></td>
+            <%}%>
+            <% if (it.admin) {%>
+            <td>
+              <form method="POST" action="/topics/<%= topic.id %>/delete"><input type="submit" value="Delete"></form>
+            </td>
+            <%}%>
+          </tr>
+      <%}%>
+    </tbody>
+  </table>

@@ -1,9 +1,9 @@
-import { app } from "./app.js";
+    import { app } from "./app.js";
 
-const port = 7777;
+    const port = 7777;
 
-app.addEventListener('listen', () => {
-    console.log(`Listening on localhost:${port}`);
-});
+    app.addEventListener('listen', () => {
+        console.log(`Listening on localhost:${port}`);
+    });
 
-await app.listen({ port });
+    await app.listen({ port });

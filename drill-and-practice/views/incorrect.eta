@@ -1,9 +1,9 @@
-<% layout("./layouts/layout.eta", {title: "Incorrect page"}) %>
+  <% layout("./layouts/layout.eta", {title: "Incorrect page"}) %>
 
-<h1>Incorrect!</h1>
+  <h1>Incorrect!</h1>
 
-<h4>The correct option was <%= it.option.option_text %></h4>
+  <h4>The correct option was <%= it.option.option_text %></h4>
 
-<div>
-  <a href="/quiz/<% it.tId %>">Next question</a>
-</div>
+  <div>
+    <a href="/quiz/<% it.tId %>">Next question</a>
+  </div>

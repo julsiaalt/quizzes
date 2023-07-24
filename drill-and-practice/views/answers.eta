@@ -1,57 +1,57 @@
-<% layout("./layouts/layout.eta", {title: "Option page"}) %>
+  <% layout("./layouts/layout.eta", {title: "Option page"}) %>
 
-<h2>Topic: <%= it.topic.name %></h2>
-<h3>Question: <%= it.question.question_text %></h3>
-<% if (it.is_quiz){ %>
-<% } else { %>
-<% if (it.options.length == 0) { %>
-<form action="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>/delete" method="POST">
-  <input type="submit" value="Delete Question">
-</form>
-<% } %>
-<form action="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>/options" method="POST">
-  <label for="question">Answer Option:</label><br>
-  <input type="textarea" id="option_text" name="option_text" required><br>
-  <label for="correctness">Correctness:</label>
-  <input type="checkbox" id="is_correct" name="is_correct"><br><br>
-  <input type="submit" value="Add">
-  <% if (it.option_text) {%>
-  <p><%= it.option_text %></p>
-  <%}%>
+  <h2>Topic: <%= it.topic.name %></h2>
+  <h3>Question: <%= it.question.question_text %></h3>
+  <% if (it.is_quiz){ %>
+  <% } else { %>
+  <% if (it.options.length == 0) { %>
+  <form action="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>/delete" method="POST">
+    <input type="submit" value="Delete Question">
   </form>
-  <br>
-  <br>
-  <%}%>
-  <h3>Answer Options:</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Option</th>
-        <th>Correctness</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for (i = 0; i < it.options.length; i++) { %>
-      <% option = it.options[i] %>
-      <tr>
-        <td><%= i + 1 %></td>
-        <% if (it.is_quiz) {%>
-        <td><a href="/quiz/<%= it.topic.id %>/questions/<%= it.question.id %>"><%= option.option_text %></a></td>
-        <%}else {%>
-        <td><a href="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>"><%= option.option_text %></a></td>
-        <%} %>
-        <td><%= option.is_correct %></td>
-        <td>
-          <% if (is_quiz) {%>
-          <form method="POST" action="/quiz/<%= it.topic.id %>/questions/<%= it.question.id %>/options/<%= option.id %>"><input type="submit" value="Choose"></form>
-          <%} else {%>
-          <form method="POST" action="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>/options/<%= option.id %>/delete"><input type="submit" value="Delete"></form>
-          <%}%>
-      
-    </td>
-  </tr>
-  <%}%>
-    </tbody>
-  </table>
+  <% } %>
+  <form action="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>/options" method="POST">
+    <label for="question">Answer Option:</label><br>
+    <input type="textarea" id="option_text" name="option_text" required><br>
+    <label for="correctness">Correctness:</label>
+    <input type="checkbox" id="is_correct" name="is_correct"><br><br>
+    <input type="submit" value="Add">
+    <% if (it.option_text) {%>
+    <p><%= it.option_text %></p>
+    <%}%>
+    </form>
+    <br>
+    <br>
+    <%}%>
+    <h3>Answer Options:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Option</th>
+          <th>Correctness</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (i = 0; i < it.options.length; i++) { %>
+        <% option = it.options[i] %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <% if (it.is_quiz) {%>
+          <td><a href="/quiz/<%= it.topic.id %>/questions/<%= it.question.id %>"><%= option.option_text %></a></td>
+          <%}else {%>
+          <td><a href="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>"><%= option.option_text %></a></td>
+          <%} %>
+          <td><%= option.is_correct %></td>
+          <td>
+            <% if (is_quiz) {%>
+            <form method="POST" action="/quiz/<%= it.topic.id %>/questions/<%= it.question.id %>/options/<%= option.id %>"><input type="submit" value="Choose"></form>
+            <%} else {%>
+            <form method="POST" action="/topics/<%= it.topic.id %>/questions/<%= it.question.id %>/options/<%= option.id %>/delete"><input type="submit" value="Delete"></form>
+            <%}%>
+        
+      </td>
+    </tr>
+    <%}%>
+      </tbody>
+    </table>

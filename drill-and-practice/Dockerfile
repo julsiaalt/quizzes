@@ -1,13 +1,13 @@
-FROM denoland/deno:alpine-1.29.2
+    FROM denoland/deno:alpine-1.29.2
 
-EXPOSE 7777
+    EXPOSE 7777
 
-WORKDIR /app
+    WORKDIR /app
 
-COPY deps.js .
+    COPY deps.js .
 
-RUN deno cache deps.js
+    RUN deno cache deps.js
 
-COPY . .
+    COPY . .
 
-CMD [ "run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "--no-check", "app-launch.js" ]
+    CMD [ "run", "--unstable", "--watch", "--allow-net", "--allow-read", "--allow-env", "--no-check", "app-launch.js" ]
